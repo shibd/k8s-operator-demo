@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alpine-k8s-pod
+  namespace: sn-users
+spec:
+  serviceAccountName: sn-users-sa
+  containers:
+  - name: alpine-k8s
+    image: alpine/k8s:1.25.13
+    command: ["/bin/sh"]
+    args: ["-c", "sleep 360000"]

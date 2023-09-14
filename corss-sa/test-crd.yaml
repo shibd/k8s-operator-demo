@@ -1,0 +1,7 @@
+apiVersion: example.com/v1
+kind: ConnectorCatalog
+metadata:
+  name: my-connector-catalog
+  namespace: sn-system
+spec:
+  id: "1234"

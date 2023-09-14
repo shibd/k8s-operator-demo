@@ -1,0 +1,23 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: sn-system
+  name: connectorcatalogs-reader
+rules:
+  - apiGroups: ["example.com"]
+    resources: ["connectorcatalogs"]
+    verbs: ["get", "watch", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: connector-catalog-reader-binding
+  namespace: sn-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: connectorcatalogs-reader
+subjects:
+  - kind: ServiceAccount
+    name: sn-system-sa
+    namespace: sn-system
